@@ -17,6 +17,8 @@ __all__ = ["Chat", "AsyncChat"]
 
 
 class Chat(SyncAPIResource):
+
+    #
     @cached_property
     def completions(self) -> Completions:
         return Completions(self._client)

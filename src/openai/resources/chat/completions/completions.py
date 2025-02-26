@@ -2249,7 +2249,7 @@ class AsyncCompletionsWithStreamingResponse:
     def messages(self) -> AsyncMessagesWithStreamingResponse:
         return AsyncMessagesWithStreamingResponse(self._completions.messages)
 
-
+# 校验response_format参数：不能是类或者继承自pydantic.BaseModel
 def validate_response_format(response_format: object) -> None:
     if inspect.isclass(response_format) and issubclass(response_format, pydantic.BaseModel):
         raise TypeError(
